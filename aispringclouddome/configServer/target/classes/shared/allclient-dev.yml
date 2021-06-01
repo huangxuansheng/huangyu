@@ -1,0 +1,26 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: allclient
+  zipkin:
+    base-url: http://localhost:9009/
+    sleuth:
+      sampler:
+        probability: 1.0
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  resources:
+    static-locations: classpath:/META-INF/resources/, classpath:/resources/, classpath:/static/, classpath:/public/, classpath:/templates/
+  #    关闭thymeleaf缓存
+  thymeleaf:
+    cache: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: allclient-8030
+    prefer-ip-address: true
